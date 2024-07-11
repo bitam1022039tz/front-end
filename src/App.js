@@ -1,25 +1,54 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Signup from './Pages/LoginForm';
+import RegistrationForm from './Pages/RegistrationForm';
+import Dashboard from './Pages/Dashboard';
+import Sidenav from './Components/Sidenav';
+import Header from './Components/Header';
+
+
+
+
+
+// import { UserProvider } from './UserContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <Router>
+        
+          <Routes>
+            <Route path="/" element={<Signup />} />
+            <Route path="/RegistrationForm" element={<RegistrationForm />} />
+            
+            <Route path="/Dashboard" element={<DashboardFull />} />
+
+            
+            
+            
+            
+          </Routes>
+       
+      </Router>
+    
   );
 }
+const DashboardFull = () =>{
+    return (
+      <div>
+          <div>
+              <Header/>
+          </div>
+          <div>
+              <Dashboard/>
+              <Sidenav/>
+          </div>
+      </div>
+
+    );
+}
+
+
 
 export default App;
